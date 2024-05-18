@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+   <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+   <script lang="javascript" src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
+   <link href="/TeacherDashboard/src/output.css" rel="stylesheet">
+   <link rel="stylesheet" href="/TeacherDashboard/css/Test/1stattempt.css">
+   <script src="/TeacherDashboard/js/Test/1stattempt.js" defer></script>
+   <title>Create test</title>
+</head>
+
+<body class="bg-gray-900 relative">
+   <main class="p-4 sm:ml-auto mr-auto max-w-4xl">
+      <div class="container">
+         <!-- Test's details -->
+         <div class="flex flex-col">
+            <div class="content" id="div1">
+               <div class="flex flex-col w-full h-auto items-center p-4 rounded-lg bg-gray-700">
+                  <h1 class="text-white text-2xl font-bold">
+                     Create a new test
+                  </h1>
+                  <div class="flex w-full justify-between items-center mt-5">
+                     <h2 class="text-white text-base font-semibold">
+                        Your class's ID (Auto generated)
+                     </h2>
+                     <div class="w-full max-w-[16rem]">
+                        <div class="relative">
+                           <label for="npm-install-copy-button" class="sr-only">
+                              Label
+                           </label>
+                           <input id="npm-install-copy-button" type="text"
+                              class="col-span-6 bg-gray-700 border text-white text-sm rounded-lg outline-none block w-full p-2.5 "
+                              value="CLASSNOABC" disabled readonly>
+                           <button data-copy-to-clipboard-target="npm-install-copy-button"
+                              data-tooltip-target="tooltip-copy-npm-install-copy-button"
+                              class="absolute end-2 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg p-2 inline-flex items-center justify-center">
+                              <span id="default-icon">
+                                 <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor" viewBox="0 0 18 20">
+                                    <path
+                                       d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2Zm-3 14H5a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-4H5a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-5H5a1 1 0 0 1 0-2h2V2h4v2h2a1 1 0 1 1 0 2Z" />
+                                 </svg>
+                              </span>
+                              <span id="success-icon" class="hidden items-center">
+                                 <svg class="w-3.5 h-3.5 text-blue-700 dark:text-blue-500" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                       stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
+                                 </svg>
+                              </span>
+                           </button>
+                           <div id="tooltip-copy-npm-install-copy-button" role="tooltip"
+                              class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                              <span id="default-tooltip-message">Copy to clipboard</span>
+                              <span id="success-tooltip-message" class="hidden">Copied!</span>
+                              <div class="tooltip-arrow" data-popper-arrow></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="bg-gray-700 p-4 -mt-3 rounded-b-lg mb-4">
+                  <form>
+                     <div class="grid gap-6 mb-6 md:grid-cols-2">
+                        <div>
+                           <label for="title" class="block mb-2 text-white text-base font-semibold">Add test's
+                              title</label>
+                           <input type="text" id="title"
+                              class="bg-gray-700 border text-white text-sm rounded-lg outline-none block w-full p-2.5"
+                              placeholder="Ex: Final exam Unit 1" required />
+                        </div>
+                        <div>
+                           <label for="duration" class="block mb-2 text-white text-base font-semibold">Test's
+                              duration</label>
+                           <select id="duration"
+                              class="bg-gray-700 border text-white text-base rounded-lg outline-none block w-full p-2.5">
+                              <option selected disabled>Duration</option>
+                              <option value="15m">15 minutes</option>
+                              <option value="45m">45 minutes</option>
+                              <option value="60m">60 minutes</option>
+                              <option value="90m">90 minutes</option>
+                              <option value="120m">120 minutes</option>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="mb-6">
+                        <label for="testDesc" class="block mb-2 text-white text-base font-semibold">Add test's
+                           description</label>
+                        <textarea id="testDesc" rows="4"
+                           class="bg-gray-700 border  text-white text-base rounded-lg outline-none block w-full p-2.5"
+                           placeholder="Test's description goes here"></textarea>
+                     </div>
+                  </form>
+                  <div class="flex space-x-4 justify-end w-full mt-3">
+                     <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" type="button"
+                        class="text-white bg-transparent border border-gray-500 hover:bg-red-500 font-medium rounded-lg text-lg px-12 py-1.5 mb-2">
+                        Cancel
+                     </button>
+                     <div id="popup-modal" tabindex="-1"
+                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                           <button type="button"
+                              class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                              data-modal-hide="popup-modal">
+                              <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                 viewBox="0 0 14 14">
+                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                              </svg>
+                              <span class="sr-only">Close modal</span>
+                           </button>
+                           <div class="p-4 md:p-5 text-center">
+                              <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true"
+                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                              </svg>
+                              <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you
+                                 want to cancel creating new test?</h3>
+                              <button data-modal-hide="popup-modal" type="button"
+                                 class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
+                                 Yes, I'm sure
+                              </button>
+                              <button data-modal-hide="popup-modal" type="button"
+                                 class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                 No, cancel
+                              </button>
+                           </div>
+                        </div>
+                     </div>
+                     <button type="button"
+                        class="text-white bg-orange-500 hover:bg-yellow-500 font-medium rounded-lg text-lg px-12 py-1.5 mb-2">
+                        Create
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- Toolbar -->
+         <div id="toolbar1" class="flex flex-col absolute bg-gray-700 rounded-lg w-10">
+            <button class="toolbar-item" onclick="addDiv()">
+               <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 448 512">
+                  <path fill="#ffffff"
+                     d="M64 80c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64zM0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
+               </svg>
+            </button>
+            <button class="toolbar-item" onclick="deleteDiv()">
+               <svg xmlns="http://www.w3.org/2000/svg" height="24" width="21" viewBox="0 0 448 512">
+                  <path fill="#ffffff"
+                     d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z" />
+               </svg>
+            </button>
+            <button data-modal-target="extralarge-modal" data-modal-toggle="extralarge-modal" type="button"
+               class="toolbar-item">
+               <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 512 512">
+                  <path fill="#ffffff"
+                     d="M128 64c0-35.3 28.7-64 64-64H352V128c0 17.7 14.3 32 32 32H512V448c0 35.3-28.7 64-64 64H192c-35.3 0-64-28.7-64-64V336H302.1l-39 39c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l80-80c9.4-9.4 9.4-24.6 0-33.9l-80-80c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l39 39H128V64zm0 224v48H24c-13.3 0-24-10.7-24-24s10.7-24 24-24H128zM512 128H384V0L512 128z" />
+               </svg>
+            </button>
+            <button class="toolbar-item" onclick="moveUp()">
+               <svg xmlns="http://www.w3.org/2000/svg" height="24" width="18" viewBox="0 0 384 512">
+                  <path fill="#ffffff"
+                     d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z" />
+               </svg>
+            </button>
+            <button class="toolbar-item" onclick="moveDown()">
+               <svg xmlns="http://www.w3.org/2000/svg" height="24" width="18" viewBox="0 0 384 512">
+                  <path fill="#ffffff"
+                     d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7L86.6 329.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128z" />
+               </svg>
+            </button>
+         </div>
+         <!-- Modal Insert questions -->
+         <div id="extralarge-modal" tabindex="-1"
+            class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+            <div class="relative w-full max-w-7xl max-h-full">
+               <!-- Modal content -->
+               <div class="relative rounded-lg shadow bg-gray-700">
+                  <!-- Modal header -->
+                  <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t  border-gray-600">
+                     <h3 class="text-xl font-medium text-white">
+                        Insert questions
+                     </h3>
+                     <button type="button"
+                        class="text-gray-400 bg-transparent hover:bg-red-500 hover:text-white rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                        data-modal-hide="extralarge-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                           viewBox="0 0 14 14">
+                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                     </button>
+                  </div>
+                  <!-- Modal body -->
+                  <div class="p-2 mb-4 border-b border-gray-500">
+                     <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-styled-tab"
+                        data-tabs-toggle="#default-styled-tab-content"
+                        data-tabs-active-classes="text-orange-500 hover:text-orange-600 border-orange-500"
+                        data-tabs-inactive-classes="dark:border-transparent text-gray-500 hover:text-gray-600 dark:text-gray-400 border-gray-100 hover:border-gray-300 dark:border-gray-700 dark:hover:text-gray-300"
+                        role="tablist">
+                        <li class="me-2" role="presentation">
+                           <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-styled-tab"
+                              data-tabs-target="#styled-profile" type="button" role="tab" aria-controls="quesbank"
+                              aria-selected="false">Questions Bank</button>
+                        </li>
+                        <li class="me-2" role="presentation">
+                           <button
+                              class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                              id="dashboard-styled-tab" data-tabs-target="#styled-dashboard" type="button" role="tab"
+                              aria-controls="quesup" aria-selected="false">Upload your questions</button>
+                        </li>
+                     </ul>
+                  </div>
+                  <div id="default-styled-tab-content">
+                     <div class="hidden p-4 rounded-lg bg-gray-700 h-screen" id="styled-profile" role="tabpanel"
+                        aria-labelledby="profile-tab">
+                        <form class="max-w-lg mx-auto">
+                           <div class="flex">
+                              <label for="year" class="sr-only">Choose subject</label>
+                              <select id="countries"
+                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-s-lg border-s-gray-100 block w-1/2 p-2.5">
+                                 <option selected disabled>Choose a subject</option>
+                                 <option value="ma">Math</option>
+                                 <option value="li">Literature</option>
+                                 <option value="en">English</option>
+                                 <option value="ph">Physics</option>
+                                 <option value="ch">Chemistry</option>
+                                 <option value="bi">Biology</option>
+                                 <option value="cie">Civic Education</option>
+                                 <option value="in">Informatics</option>
+                                 <option value="geo">Geography</option>
+                                 <option value="his">History</option>
+                                 <option value="mu">Music</option>
+                              </select>
+                              <div class="relative w-full">
+                                 <input type="search" id="search-dropdown"
+                                    class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-s-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
+                                    placeholder="Search Questions, Tests,...." required />
+                                 <button type="submit"
+                                    class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-e-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                       fill="none" viewBox="0 0 20 20">
+                                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                          stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                    </svg>
+                                    <span class="sr-only">Search</span>
+                                 </button>
+                              </div>
+                           </div>
+                        </form>
+                        <div class="p-2 mt-3">
+                           <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
+                              <div class="test-card">
+                                 <a href="#"
+                                    class="block w-full  p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                       Noteworthy technology acquisitions 2021</h5>
+                                    <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest
+                                       enterprise
+                                       technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                                 </a>
+                              </div>
+                              <div class="test-card">
+                                 <a href="#"
+                                    class="block w-full  p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                       Noteworthy technology acquisitions 2021</h5>
+                                    <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest
+                                       enterprise
+                                       technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                                 </a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="hidden p-4 rounded-lg bg-gray-700" id="styled-dashboard" role="tabpanel"
+                     aria-labelledby="dashboard-tab">
+                     <label class="block mb-2 text-lg font-medium text-white" for="file_input">Upload file</label>
+                     <input class="block w-full text-sm text-white border border-gray-300 rounded-lg cursor-pointer "
+                        aria-describedby="file_input_help" id="file_input" type="file" accept=".xlsx">
+                     <p class="mt-1 text-sm text-gray-300 dark:text-gray-300 mb-2" id="file_input_help">Only accept
+                        .xlxs
+                        file</p>
+                     <h3 class="text-white mb-2 text-lg font-medium">
+                        Please follow this template
+                     </h3>
+                     <p class="mt-1 text-sm text-gray-300 dark:text-gray-300 mb-2" id="file_input_help">(Reading datas
+                        starting from row 4)</p>
+                     <img class="max-w-10 mx-auto mb-2" src="/TeacherDashboard/img/questionTemplates.png" alt="Questions template">
+                     <div
+                        class="flex justify-end bg-gray-700 space-x-3 items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+                        <button data-modal-hide="extralarge-modal" type="button"
+                           class="py-2.5 px-5 ms-3 text-sm font-medium text-white bg-transparent rounded-lg border border-gray-400 hover:bg-red-600 hover:text-white hover:border-transparent focus:z-10 ">Cancel</button>
+                        <button id="submit" data-modal-hide="extralarge-modal" type="button"
+                           class="text-white bg-orange-500 hover:bg-orange-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Use
+                           this
+                        </button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+   </main>
+
+</body>
+
+</html>

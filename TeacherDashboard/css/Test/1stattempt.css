@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+
+.content {
+  display: inline-block;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    padding: 10px;
+}
+
+#toolbar1 {
+    right: -40px;
+    position: absolute;
+    background-color: gray;
+    transition: top 0.5s;
+}
+
+.toolbar-item {
+  background: none;
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toolbar-item svg {
+  fill: white;
+}
+
+.toolbar-item:hover {
+  background-color: #555;
+}
