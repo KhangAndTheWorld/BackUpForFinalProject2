@@ -14,8 +14,8 @@
       crossorigin="anonymous" referrerpolicy="no-referrer" />
    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
    <link href="/AdminDashboard/src/output.css" rel="stylesheet">
-   <link rel="stylesheet" href="/AdminDashboard/css/Teacher/teacher.css">
-   <script src="/AdminDashboard/js/Teacher/teacher.js" defer></script>
+   <link rel="stylesheet" href="/AdminDashboard/css/Teacher/teacherview.css">
+   <script src="/AdminDashboard/js/Teacher/teacherview.js" defer></script>
    <title>Teachers</title>
 </head>
 
@@ -166,105 +166,126 @@
    </aside>
 
    <!-- Main Content -->
-   <div class="p-4 sm:ml-auto mr-auto max-w-4xl">
-      <!--Class Session -->
-      <div class="p-2">
-         <div class="flex w-full h-auto justify-between items-center rounded-lg p-4 bg-gray-700">
-            <h2 class="text-white text-base font-semibold">Choose teachers' session</h2>
-            <div>
-               <form class="max-w-xl mx-auto">
-                  <div class="flex flex-row text-white">
-                     <!-- Choose semester -->
-                     <label for="semester" class="sr-only">Choose semester</label>
-                     <select id="semester"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-s-lg border-s-gray-100 dark:border-s-gray-700 border-s-2 focus:ring-blue-500 focus:border-blue-500 block w-80% p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option selected disabled>Choose semester</option>
-                        <option value="1">Semester I</option>
-                        <option value="2">Semester II</option>
-                     </select>
-                     <!-- Choose year -->
-                     <label for="year" class="sr-only">Choose year</label>
-                     <select id="year"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-e-lg border-s-gray-100 dark:border-s-gray-700 border-s-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option selected disabled>Choose year</option>
-                     </select>
-                  </div>
-               </form>
-            </div>
-         </div>
-      </div>
-      <!-- Search bar -->
-      <div class="my-4">
-         <form class="max-w-md mx-auto">
-            <label for="default-search"
-               class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-            <div class="relative">
-               <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                  <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                  </svg>
+   <main>
+      <div id="form-container" class="p-4 sm:mx-auto mt-4 max-w-4xl rounded-lg pd-4 bg-gray-700">
+         <h1 class="text-white text-nowrap text-xl font-bold uppercase my-2">Teacher's details</h1>
+         <form id="formContent">
+            <div class="grid gap-6 mb-6 md:grid-cols-2">
+               <div>
+                  <label for="first_name" class="block mb-2 text-sm font-medium text-white">First
+                     name</label>
+                  <input type="text" id="first_name"
+                     class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg block w-full p-2.5" value=""
+                     readonly />
                </div>
-               <input type="search" id="default-search"
-                  class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Search with Student's name, ID, email,..." required />
+               <div>
+                  <label for="last_name" class="block mb-2 text-sm font-medium text-white">Last
+                     name</label>
+                  <input type="text" id="last_name"
+                     class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg block w-full p-2.5" value=""
+                     readonly />
+               </div>
+               <div>
+                  <label for="teacherID" class="block mb-2 text-sm font-medium text-white">Teacher ID</label>
+                  <input type="text" id="teacherID"
+                     class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg block w-full p-2.5" value=""
+                     readonly />
+               </div>
+               <div>
+                  <label for="userRole" class="block mb-2 text-sm font-medium text-white">
+                     User's role
+                  </label>
+                  <input type="text" id="userRole"
+                     class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg block w-full p-2.5"
+                     value="Teacher" readonly />
+               </div>
+               <div>
+                  <label for="birthday" class="block mb-2 text-sm font-medium text-white">
+                     Date of birth
+                  </label>
+                  <input type="text" id="birthday"
+                     class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg block w-full p-2.5" value=""
+                     readonly />
+               </div>
+               <div>
+                  <label for="regDate" class="block mb-2 text-sm font-medium text-white">
+                     Registration date
+                  </label>
+                  <input type="text" id="regDate"
+                     class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg block w-full p-2.5" value=""
+                     readonly />
+               </div>
+            </div>
+            <div class="mb-6">
+               <label for="email" class="block mb-2 text-sm font-medium text-white">Email
+                  address</label>
+               <input type="email" id="email"
+                  class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg block w-full p-2.5" value=""
+                  readonly />
+            </div>
+            <div class="mb-6">
+               <label for="password" class="block mb-2 text-sm font-medium text-white">Current password</label>
+               <input type="text" id="password"
+                  class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg block w-full p-2.5" value=""
+                  readonly />
+            </div>
+            <div class="mb-6">
+               <label for="new_password" class="block mb-2 text-sm font-medium text-white">New password</label>
+               <input type="password" id="new_password"
+                  class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg block w-full p-2.5" />
+            </div>
+            <div class="mb-6">
+               <label for="confirm_new_password" class="block mb-2 text-sm font-medium text-white">Confirm new
+                  password</label>
+               <input type="password" id="confirm_new_password"
+                  class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg block w-full p-2.5" />
+            </div>
+            <!-- Buttons -->
+            <div class="flex justify-between mt-10">
+               <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
+                  class="block text-white bg-red-600 hover:bg-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                  type="button">
+                  Delete
+               </button>
                <button type="submit"
-                  class="text-white absolute end-2.5 bottom-2.5 bg-orange-500 hover:bg-orange-700 font-medium rounded-lg text-sm px-4 py-2">Search</button>
+                  class="text-white bg-green-500 hover:bg-green-700 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
+            </div>
+            <div id="popup-modal" tabindex="-1"
+               class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+               <div class="relative p-4 w-full max-w-md max-h-full">
+                  <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                     <button type="button"
+                        class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                        data-modal-hide="popup-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                           viewBox="0 0 14 14">
+                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                     </button>
+                     <div class="p-4 md:p-5 text-center">
+                        <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true"
+                           xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                        <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to
+                           delete this user?</h3>
+                        <button data-modal-hide="popup-modal" type="button"
+                           class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
+                           Yes, I'm sure
+                        </button>
+                        <button data-modal-hide="popup-modal" type="button"
+                           class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">No,
+                           cancel</button>
+                     </div>
+                  </div>
+               </div>
             </div>
          </form>
       </div>
-      <!-- Student list table -->
-      <div class="p-2">
-         <div class="realative overflow-x-auto mb-4  rounded-lg bg-gray-700">
-            <table class="w-full text-sm text-left rtl:text-right text-white">
-               <caption class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-50 bg-gray-700 ">
-                  Your teachers list
-                  <p class="mt-1 text-sm font-normal text-gray-300 ">Track your teachers' progress, grades, and
-                     engagement with ease. Stay connected and informed with a glance at your Student List.</p>
-               </caption>
-               <thead class="text-xs text-white uppercase bg-gray-500 ">
-                  <tr>
-                     <th scope="col" class="px-6 py-4">
-                        Teacher name
-                     </th>
-                     <th scope="col" class="px-6 py-4 text-center">
-                        Teacher id
-                     </th>
-                     <th scope="col" class="px-6 py-4 text-center">
-                        email
-                     </th>
-                     <th scope="col" class="px-6 py-4 text-center">
-                        Date of birth
-                     </th>
-                     <th scope="col" class="pl-8 py-4">
-                        <a href="#" class="hover:underline hover:text-blue-500"></a>
-                     </th>
-                  </tr>
-               </thead>
-               <tbody id="tableBody">
-                  <!-- <tr>
-                     <th scope="row" class="px-6 py-4 font-medium text-white whitespace-nowrap">
-                        Teacher Name
-                    </th>
-                    <td class="px-4 py-2 text-center uppercase">Teacher ID</td>
-                    <td class="px-4 py-2 text-center">Teacher email</td>
-                    <td class="px-4 py-2 text-center">Teacher date of birth</td>
-                    <td class="px-6 py-4 text-center">
-                        <a href="/AdminDashboard/html/Teachers/teacherview.html">
-                            <button 
-                            class="text-orange-500 hover:underline font-medium text-sm text-center" type="button">
-                            Edit
-                            </button>
-                        </a>
-                     </td>
-                  </tr> -->
-               </tbody>
-            </table>
-         </div>
-         </div>
-      </div>
-
+   </main>
 </body>
 
 </html>

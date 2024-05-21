@@ -55,21 +55,46 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
     });
 });
 
-//Year option
-const yearSelect = document.getElementById('year');
-const currentYear = new Date().getFullYear(); 
-const years = []; 
 
-// Generate options for the last 10 years
-for (let i = 0; i < 10; i++) {
-    years.push(currentYear + i);
-}
-years.forEach(year => {
-    const option = document.createElement('option');
-    option.text = year;
-    option.value = year;
-    yearSelect.add(option);
-});
+//Table API (delete when using PHP)
+// document.addEventListener("DOMContentLoaded", function() {
+//     fetch('https://664986254032b1331bee20a8.mockapi.io/fakeapi/student')
+//         .then(response => response.json())
+//         .then(data => {
+//             const tableBody = document.getElementById('tableBody');
+//             data.forEach((student, index) => {
+//                 const row = document.createElement('tr');
+//                 row.setAttribute('id', student.id)
+//                 row.className = index % 2 === 0 ? 'even' : 'odd';
+//                 row.addEventListener('mouseenter', function() {
+//                     this.classList.add('hover:bg-gray-800');
+//                 });
+//                 // Format the birthday to display only the date part
+//                 const formattedBirthday = new Date(student.birthday).toLocaleDateString('en-US');
+
+//                 row.innerHTML = `
+//                     <th scope="row" class="px-6 py-4 font-medium text-white whitespace-nowrap">
+//                         ${student.firstName} ${student.lastName}
+//                     </th>
+//                     <td class="px-4 py-2 text-center uppercase">${student.studentID}</td>
+//                     <td class="px-4 py-2 text-center">${student.email}</td>
+//                     <td class="px-4 py-2 text-center">${formattedBirthday}</td>
+//                     <td class="px-6 py-4 text-center">
+//                         <a href="/AdminDashboard/html/Students/studentview.html?id=${student.id}">
+//                             <button 
+//                             class="text-orange-500 hover:underline font-medium text-sm text-center" type="button">
+//                             Edit
+//                             </button>
+//                         </a>
+//                      </td>
+//                 `;
+//                 tableBody.appendChild(row);
+//             });
+//         })
+//         .catch(error => {
+//             console.error('Error fetching data:', error);
+//         });
+// })
 
 
 

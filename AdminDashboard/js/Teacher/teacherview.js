@@ -55,46 +55,33 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
     });
 });
 
-//Course's stage edit field
-// Add event listener to the input field for the course stage
-const stageInput = document.getElementById('course_stage');
-const stageDetailsContainer = document.getElementById('stage-details-container');
-const confirmButton = document.getElementById('confirm-button');
 
-confirmButton.addEventListener('click', () => {
-    // Get the value entered by the user
-    event.preventDefault();
-    console.log("button clicked");
-    const stageCount = parseInt(stageInput.value);
+//Table API
+document.addEventListener("DOMContentLoaded", function() {
 
-    // Generate new stage details divs based on the entered stage count
-    for (let i = 1; i <= stageCount; i++) {
-        const stageDiv = document.createElement("div");
-        stageDiv.classList.add('stage-details');
-        stageDiv.innerHTML = `
-            <h2 class="font-bold mb-1 uppercase text-orange-500">stage ${i}</h2>
-            <form>
-            <div class="grid gap-6 mb-6 md:grid-cols-2">
-            <div>
-                <label for="first_name" class="block mb-2 text-sm font-medium text-white">Stage's title</label>
-                <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 " placeholder="Ex: 1.Linear Relations" required />
-            </div>
-            <div>
-                <label for="last_name" class="block mb-2 text-sm font-medium text-white">Video's URL</label>
-                <input type="text" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500    w-full p-2.5 " placeholder="https://videos.com" required />
-            </div>
-            </div>
-            <div class="mb-6">
-                <label for="description" class="block mb-2 text-sm font-medium text-white">Stage's description</label>
-                <textarea id="description" class="min-h-8 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500   w-full p-2.5" placeholder="Summarize your video's content here" required ></textarea>
-            </div>
-            </form>
-        `;
-        stageDetailsContainer.appendChild(stageDiv);
-    }
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+    console.log("ID:", id);
+
+    const apiUrl = `https://664986254032b1331bee20a8.mockapi.io/fakeapi/teacher/${id}`;
+    console.log("API URL:", apiUrl);
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            document.getElementById('first_name').value = data.firstName;
+            document.getElementById('last_name').value = data.lastName;
+            document.getElementById('teacherID').value = data.teacherID;
+            document.getElementById('birthday').value = data.birthday;
+            document.getElementById('regDate').value = data.regDate;
+            document.getElementById('email').value = data.email;
+            document.getElementById('password').value = data.password;
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
 });
-
-
 
 
 

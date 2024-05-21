@@ -16,7 +16,7 @@
    <link href="/src/output.css" rel="stylesheet">
    <link rel="stylesheet" href="/AdminDashboard/css/Course/course.css">
    <script src="/AdminDashboard/js/Course/course.js" defer></script>
-   <title>Class</title>
+   <title>Course</title>
 </head>
 
 <body class="bg-gray-900">
@@ -167,10 +167,10 @@
 
    <!-- Main Content -->
    <div class="p-4 sm:ml-auto mr-auto max-w-4xl">
-      <!--Class Session -->
+      <!--Course Session -->
       <div class="p-2">
          <div class="flex w-full h-auto justify-between items-center rounded-lg p-4 bg-gray-700">
-            <h2 class="text-white text-base font-semibold">Choose class session</h2>
+            <h2 class="text-white text-base font-semibold">Choose course session</h2>
             <div>
                <form class="max-w-xl mx-auto">
                   <div class="flex flex-row text-white">
@@ -193,8 +193,28 @@
             </div>
          </div>
       </div>
-
-      <!-- Classes list table -->
+      <!-- Searchbar -->
+      <div class="my-4">
+         <form class="max-w-md mx-auto">
+            <label for="default-search"
+               class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+            <div class="relative">
+               <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                  <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                  </svg>
+               </div>
+               <input type="search" id="default-search"
+                  class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Search with Course's name, ID, email,..." required />
+               <button type="submit"
+                  class="text-white absolute end-2.5 bottom-2.5 bg-orange-500 hover:bg-orange-700 font-medium rounded-lg text-sm px-4 py-2">Search</button>
+            </div>
+         </form>
+      </div>
+      <!-- Courses list table -->
       <div class="p-2">
          <div class="realative overflow-x-auto mb-4  rounded-lg bg-gray-700">
             <table class="w-full text-sm text-left rtl:text-right text-white">
@@ -223,94 +243,24 @@
                      </th>
                   </tr>
                </thead>
-               <tbody>
-                  <tr class="odd:bg-gray-700 even:bg-gray-400">
-                     <th scope="row" class="px-6 py-4 font-medium text-white  whitespace-nowrap ">
-                        CLASSNO1
-                     </th>
-                     <td class="px-6 py-4 text-center">
-                        Math
-                     </td>
-                     <td class="px-6 py-4 text-center">
-                        100
-                     </td>
-                     <td class="px-6 py-4 text-center">
-                        (dd/mm/yyyy)
-                     </td>
-                     <td class="px-6 py-4 text-center">
-                        <a href="classmanagement.html" class="font-medium text-orange-500 hover:underline">Edit</a>
-                     </td>
-                  </tr>
-                  <tr class="odd:bg-gray-700 even:bg-gray-400">
-                     <th scope="row" class="px-6 py-4 font-medium text-white whitespace-nowrap ">
-                        CLASSNO2
-                     </th>
-                     <td class="px-6 py-4 text-center">
-                        English
-                     </td>
-                     <td class="px-6 py-4 text-center">
-                        150
-                     </td>
-                     <td class="px-6 py-4 text-center">
-                        (dd/mm/yyyy)
-                     </td>
-                     <td class="px-6 py-4 text-center">
-                        <a href="#" class="font-medium text-orange-500 hover:underline">Edit</a>
-                     </td>
-                  </tr>
-                  <tr class="odd:bg-gray-900 even:bg-gray-400">
-                     <th scope="row" class="px-6 py-4 font-medium text-white whitespace-nowrap ">
-                        CLASSNO3
-                     </th>
-                     <td class="px-6 py-4 text-center">
-                        Biology
-                     </td>
-                     <td class="px-6 py-4 text-center">
-                        50
-                     </td>
-                     <td class="px-6 py-4 text-center">
-                        (dd/mm/yyyy)
-                     </td>
-                     <td class="px-6 py-4 text-center">
-                        <a href="classmanagement.html" class="font-medium text-orange-500 hover:underline">Edit</a>
-                     </td>
-                  </tr>
-                  <tr class="odd:bg-gray-900 even:bg-gray-400">
-                     <th scope="row" class="px-6 py-4 font-medium text-white whitespace-nowrap ">
-                        CLASSNO4
-                     </th>
-                     <td class="px-6 py-4 text-center">
-                        Physics
-                     </td>
-                     <td class="px-6 py-4 text-center">
-                        50
-                     </td>
-                     <td class="px-6 py-4 text-center">
-                        (dd/mm/yyyy)
-                     </td>
-                     <td class="px-6 py-4 text-center">
-                        <a href="classmanagement.html" class="font-medium text-orange-500 hover:underline">Edit</a>
-                     </td>
-                  </tr>
-                  <tr class="odd:bg-gray-900 even:bg-gray-400">
-                     <th scope="row" class="px-6 py-4 font-medium text-white whitespace-nowrap ">
-                        CLASSNO5
-                     </th>
-                     <td class="px-6 py-4 text-center">
-                        Informatics
-                     </td>
-                     <td class="px-6 py-4 text-center">
-                        50
-                     </td>
-                     <td class="px-6 py-4 text-center">
-                        (dd/mm/yyyy)
-                     </td>
-                     <td class="px-6 py-4 text-center">
-                        <a href="classmanagement.html" class="font-medium text-orange-500 hover:underline">Edit</a>
+               <tbody id="tableBody">
+                  <tr>
+                     <th scope="row" class="px-6 py-4 font-medium text-white whitespace-nowrap uppercase">
+                        courseno1
+                    </th>
+                    <td class="px-4 py-2 text-center">Subject</td>
+                    <td class="px-4 py-2 text-center uppercase">classno1</td>
+                    <td class="px-4 py-2 text-center">dd/mm/yyy</td>
+                    <td class="px-6 py-4 text-center">
+                        <a href="/AdminDashboard/html/Teachers/teacherview.html">
+                            <button 
+                            class="text-orange-500 hover:underline font-medium text-sm text-center" type="button">
+                            Edit
+                            </button>
+                        </a>
                      </td>
                   </tr>
                </tbody>
-            </table>
          </div>
       </div>
    </div>
